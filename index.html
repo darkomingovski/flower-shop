@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <script src="main.js"></script>
 </head>
-<body onload="whichQt(); whichQt1(); whichQt2(); whichQt3(); whichQt4()">
+<body onload="makeFlower(); checkSource()" >
     <div class="grid-container">
         <div class="item0"></div>
         <div class="item1">
@@ -26,7 +26,7 @@
         <div class="item3">
             <ul>
                 <li><a href="#contact"><i class="fas fa-phone fa-lg"></i></a></li>
-                <li><a href="#shop"><i class="fas fa-cart-plus fa-lg" onclick=totalPrice()></i></a></li>
+                <li><a href="#shop"><i class="fas fa-cart-plus fa-lg" onclick="totalPrice()"></i></a></li>
             </ul>
         </div>
         <div class="item4">
@@ -53,58 +53,58 @@
             </div>  
         </div>
         <div class="item6">
-                <div class="subtittle" id="shop">SHOP</div>
-                <div class="maintittle">Our Seasonal Recommendations</div>
-                <br>
-                <div class="shop">
-                    <div class="product" id="springmagic">
-                        <img src="images/product-01.jpg" alt="Spring Magic">
-                        <h4>Spring Magic</h4>
-                        <h5>price(rsd): <input id="sM" disabled type="number" value="550"></h5>
-                        <input id=sMb type="hidden" value="550">
-                        <h5>quantity: &nbsp;&nbsp;<input id="quantitysM" type="number" min="1" max="100" step="1" value="1" onclick="this.select()" oninput=springMagicPrice()></h5>
-                        <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="sMTotal" disabled type="number" value="500"></h5>
-                        <input id="button" type="button" value="Add to cart" onclick="sMBill()">
-                    </div>
-                    <div class="product" id="summerfresh">
-                        <img src="images/product-02.jpg" alt="Summer Fresh">
-                        <h4>Summer Fresh</h4>
-                        <h5>price(rsd):<input id="sF" disabled type="number" value="450"></h5>
-                        <input id=sFb type="hidden" value="450">
-                        <h5>quantity: &nbsp;&nbsp;<input id="quantitysF" type="number" min="1" max="100" step="1" value="1" onclick="this.select()" oninput=summerFreshPrice()></h5>
-                        <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="sFTotal" disabled type="number" value="500"></h5>
-                        <input id="button" type="button" value="Add to cart" onclick="sFBill()">
-                    </div>
-                    <div class="product" id="easterflowers">
-                        <img src="images/product-03.jpg" alt="Easter Flowers">
-                        <h4>Easter Flowers</h4>
-                        <h5>price(rsd):<input id="eF" disabled type="number" value="600"></h5>
-                        <input id=eFb type="hidden" value="600">
-                        <h5>quantity: &nbsp;&nbsp;<input id="quantityeF" type="number" min="1" max="100" step="1" value="1" onclick="this.select()" oninput=easterFlowersPrice()></h5>
-                        <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="eFTotal" disabled type="number" value="500"></h5>
-                        <input id="button" type="button" value="Add to cart" onclick="eFBill()">
-                    </div>
-                    <div class="product" id="tomumwithlove">
-                        <img src="images/product-04.jpg" alt="To Mum With Love">
-                        <h4>To Mum With Love</h4>
-                        <h5>price(rsd):<input id="tM" disabled type="number" value="550"></h5>
-                        <input id=tMb type="hidden" value="550">
-                        <h5>quantity: &nbsp;&nbsp;<input id="quantitytM" type="number" min="1" max="100" step="1" value="1" onclick="this.select()" oninput=toMumPrice()></h5>
-                        <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="tMTotal" disabled type="number" value="500"></h5>
-                        <input id="button" type="button" value="Add to cart" onclick="tMBill()">
-                    </div>
-                    <div class="product" id="pinkperfection">
-                        <img src="images/product-05.jpg" alt="Pink Perfection">
-                        <h4>Pink Perfection</h4>
-                        <h5>price(rsd):<input id="pP" disabled type="number" value="700"></h5>
-                        <input id=pPb type="hidden" value="700">
-                        <h5>quantity: &nbsp;&nbsp;<input id="quantitypP" type="number" min="1" max="100" step="1" value="1" onclick="this.select()" oninput=pinkPerfectionPrice()></h5>
-                        <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="pPTotal" disabled type="number" value="500"></h5>
-                        <input id="button" type="button" value="Add to cart" onclick="pPBill()">
-                        <input type="hidden" id="tPrice" value="0">
-                    </div>
+            <div class="subtittle" id="shop">SHOP</div>
+            <div class="maintittle">Our Seasonal Recommendations</div>
+            <br>
+            <div class="shop">
+                <div class="product" id="springmagic">
+                    <img src="images/product-01.jpg" alt="Spring Magic">
+                    <h4>Spring Magic</h4>
+                    <p><h5>price(rsd): <input id="springMagicPrice" disabled="disabled" name="Spring Magic" type="number" value="550"></h5></p>
+                    <input id="springMagicBasePrice" type="hidden" value="550">
+                <p><h5>quantity: &nbsp;&nbsp;<input id="springMagicQuantity" name="springMagicQuantity" type="number" value="1" onclick="this.select()" oninput="springMagic.flowerPrice()"></h5></p>
+                    <p><h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="springMagicStock" name="springMagicStock" disabled type="number" value="500"></h5></p>
+                    <input id="button" type="button" value="Add to cart" onclick="springMagic.flowerBill()">
                 </div>
-        </div>  
+                <div class="product" id="summerfresh">
+                    <img src="images/product-02.jpg" alt="Summer Fresh">
+                    <h4>Summer Fresh</h4>
+                    <h5>price(rsd):<input id="summerFreshPrice" disabled type="number" name="Summer Fresh" value="450"></h5>
+                    <input id="summerFreshBasePrice" type="hidden" value="450">
+                    <h5>quantity: &nbsp;&nbsp;<input id="summerFreshQuantity" name="summerFreshQuantity" type="number" value="1" onclick="this.select()" oninput=summerFresh.flowerPrice()></h5>
+                    <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="summerFreshStock" name="summerFreshStock" disabled type="number" value="500"></h5>
+                    <input id="button" type="button" value="Add to cart" onclick="summerFresh.flowerBill()">
+                </div>
+                <div class="product" id="easterflowers">
+                    <img src="images/product-03.jpg" alt="Easter Flowers">
+                    <h4>Easter Flowers</h4>
+                    <h5>price(rsd):<input id="easterFlowersPrice" disabled type="number" name="Easter Flowers" value="600"></h5>
+                    <input id="easterFlowersBasePrice" type="hidden" value="600">
+                    <h5>quantity: &nbsp;&nbsp;<input id="easterFlowersQuantity" name="easterFlowersQuantity" type="number" value="1" onclick="this.select()" oninput=easterFlowers.flowerPrice()></h5>
+                    <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="easterFlowersStock" name="esterFlowersStock" disabled type="number" value="500"></h5>
+                    <input id="button" type="button" value="Add to cart" onclick="easterFlowers.flowerBill()">
+                </div>
+                <div class="product" id="tomumwithlove">
+                    <img src="images/product-04.jpg" alt="To Mum With Love">
+                    <h4>To Mum With Love</h4>
+                    <h5>price(rsd):<input id="toMumPrice" disabled type="number" name="To Mum With Love" value="550"></h5>
+                    <input id="toMumBasePrice" type="hidden" value="550">
+                    <h5>quantity: &nbsp;&nbsp;<input id="toMumQuantity" name="toMumQuantity" type="number" value="1" onclick="this.select()" oninput=toMum.flowerPrice()></h5>
+                    <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="toMumStock" name="toMumStock" disabled type="number" value="500"></h5>
+                    <input id="button" type="button" value="Add to cart" onclick="toMum.flowerBill()">
+                </div>
+                <div class="product" id="pinkperfection">
+                    <img src="images/product-05.jpg" alt="Pink Perfection">
+                    <h4>Pink Perfection</h4>
+                    <h5>price(rsd):<input id="pinkPerfectionPrice" disabled type="number" name="Pink Perfection" value="550"></h5>
+                    <input id="pinkPerfectionBasePrice" type="hidden" value="550">
+                    <h5>quantity: &nbsp;&nbsp;<input id="pinkPerfectionQuantity" name="pinkPerfectionQuantity" type="number" value="1" onclick="this.select()" oninput=pinkPerfection.flowerPrice()></h5>
+                    <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="pinkPerfectionStock" name="pinkPerfectionStock" disabled type="number" value="500"></h5>
+                    <input id="button" type="button" value="Add to cart" onclick="pinkPerfection.flowerBill()">
+                    <input type="hidden" id="finalPrice" value="0">
+                </div>
+            </div>
+    </div>  
         <div class="item7">
                 <div class="maintittle" id="itm7tittle">Let Us Make Your Wedding Beautiful</div>
         </div>
