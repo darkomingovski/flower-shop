@@ -142,16 +142,11 @@
 
         function placeOrder() {
             alert("Your order is confirmed. Thank you for shopping with us!");
-            sessionStorage.setItem('Spring Magic', 0);
-            sessionStorage.setItem('springMagicQuantity', 0);
-            sessionStorage.setItem('Summer Fresh', 0);
-            sessionStorage.setItem('summerFreshQuantity', 0);
-            sessionStorage.setItem('Easter Flowers', 0);
-            sessionStorage.setItem('easterFlowersQuantity', 0);
-            sessionStorage.setItem('To Mum With Love', 0);
-            sessionStorage.setItem('toMumQuantity', 0);
-            sessionStorage.setItem('Pink Perfection', 0);
-            sessionStorage.setItem('pinkPerfectionQuantity', 0);
+            sessionStorage.setItem('Spring Magic', 0, 'springMagicQuantity', 0);
+            sessionStorage.setItem('Summer Fresh', 0, 'summerFreshQuantity', 0);
+            sessionStorage.setItem('Easter Flowers', 0, 'easterFlowersQuantity', 0);
+            sessionStorage.setItem('To Mum With Love', 0, 'toMumQuantity', 0);
+            sessionStorage.setItem('Pink Perfection', 0, 'pinkPerfectionQuantity', 0);
         };
     </script>
 </body>
