@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Eufloria</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <link href="https://fonts.googleapis.com/css?family=Martel+Sans|Petit+Formal+Script|Raleway:300|Roboto:100" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Martel+Sans|Petit+Formal+Script|Raleway:300|Roboto:100"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <script src="main.js"></script>
 </head>
-<body onload="makeFlower(); checkSource()" >
+
+<body onload="makeFlower(); checkSource()">
     <div class="grid-container">
         <div class="item0"></div>
         <div class="item1">
-                <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#shop">SHOP</a></li>
-                    <li><a href="#about">ABOUT</a></li>
-                </ul>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#shop">SHOP</a></li>
+                <li><a href="#about">ABOUT</a></li>
+            </ul>
         </div>
         <div class="item2">
             <h1><a href="#">Eufloria</a></h1>
@@ -26,11 +30,11 @@
         <div class="item3">
             <ul>
                 <li><a href="#contact"><i class="fas fa-phone fa-lg"></i></a></li>
-                <li><a href="#shop"><i class="fas fa-cart-plus fa-lg" onclick="totalPrice()"></i></a></li>
+                <li><a href="#shop"><i class="fas fa-cart-plus fa-lg" onclick=totalPrice()></i></a></li>
             </ul>
         </div>
         <div class="item4">
-           <div class="logotext">send gorgeous flowers and create long lasting happy memories</div>    
+            <div class="logotext">send gorgeous flowers and create long lasting happy memories</div>
         </div>
         <div class="item5">
             <div class="subtittle">SERVICES</div>
@@ -38,19 +42,23 @@
             <div class="main">
                 <img src="images/about.png" alt="flower shop images">
                 <div class="maincontent">
-                <h3>Flower delivery with care and attention</h3>
-                Lorem ipsum dolor sit amet, dico tempor omittantur in pri. Mei vidit ubique labitur te. Simul animal ad mea, no mea audire aperiam ocurreret.
-                <br><br><br>
-                <h3>Floral arrangements for any event</h3>
-                Simul animal ad mea, no mea audire aperiam ocurreret, an aperiam noluisse cum. Cum eruditi volutpat et, vis ei ignota officiis adipiscing.
-                <br><br><br>
-                <h3>Fresh flowers directly from our flower shop</h3>
-                Habeo nominavi aliquando et per, volutpat ullamcorper complectitur mel cu, pro id consul regione feugiat. Graeco semper iriure eos et, ius an etiam verear eripuit.
-                <br><br><br>
-                <h3>Bouquets for all occasions</h3>
-                Alterum utroque maluisset ea has, sit te purto posse detracto, nusquam consulatu assentior usu ad. No soleat menandri mel, usu et malorum cotidieque. No sit inani pertinacia.
+                    <h3>Flower delivery with care and attention</h3>
+                    Lorem ipsum dolor sit amet, dico tempor omittantur in pri. Mei vidit ubique labitur te. Simul animal
+                    ad mea, no mea audire aperiam ocurreret.
+                    <br><br><br>
+                    <h3>Floral arrangements for any event</h3>
+                    Simul animal ad mea, no mea audire aperiam ocurreret, an aperiam noluisse cum. Cum eruditi volutpat
+                    et, vis ei ignota officiis adipiscing.
+                    <br><br><br>
+                    <h3>Fresh flowers directly from our flower shop</h3>
+                    Habeo nominavi aliquando et per, volutpat ullamcorper complectitur mel cu, pro id consul regione
+                    feugiat. Graeco semper iriure eos et, ius an etiam verear eripuit.
+                    <br><br><br>
+                    <h3>Bouquets for all occasions</h3>
+                    Alterum utroque maluisset ea has, sit te purto posse detracto, nusquam consulatu assentior usu ad.
+                    No soleat menandri mel, usu et malorum cotidieque. No sit inani pertinacia.
+                </div>
             </div>
-            </div>  
         </div>
         <div class="item6">
             <div class="subtittle" id="shop">SHOP</div>
@@ -60,63 +68,86 @@
                 <div class="product" id="springmagic">
                     <img src="images/product-01.jpg" alt="Spring Magic">
                     <h4>Spring Magic</h4>
-                    <p><h5>price(rsd): <input id="springMagicPrice" disabled="disabled" name="Spring Magic" type="number" value="550"></h5></p>
+                    <p>
+                        <h5>price(rsd): <input id="springMagicPrice" disabled="disabled" name="Spring Magic"
+                                type="number" value="550"></h5>
+                    </p>
                     <input id="springMagicBasePrice" type="hidden" value="550">
-                <p><h5>quantity: &nbsp;&nbsp;<input id="springMagicQuantity" name="springMagicQuantity" type="number" value="1" onclick="this.select()" oninput="springMagic.flowerPrice()"></h5></p>
-                    <p><h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="springMagicStock" name="springMagicStock" disabled type="number" value="500"></h5></p>
+                    <p>
+                        <h5>quantity: &nbsp;&nbsp;<input id="springMagicQuantity" name="springMagicQuantity"
+                                type="number" value="0" onclick="this.select()" oninput="springMagic.flowerPrice()">
+                        </h5>
+                    </p>
+                    <p>
+                        <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="springMagicStock" name="springMagicStock" disabled
+                                type="number" value="500"></h5>
+                    </p>
                     <input id="button" type="button" value="Add to cart" onclick="springMagic.flowerBill()">
                 </div>
                 <div class="product" id="summerfresh">
                     <img src="images/product-02.jpg" alt="Summer Fresh">
                     <h4>Summer Fresh</h4>
-                    <h5>price(rsd):<input id="summerFreshPrice" disabled type="number" name="Summer Fresh" value="450"></h5>
+                    <h5>price(rsd):<input id="summerFreshPrice" disabled type="number" name="Summer Fresh" value="450">
+                    </h5>
                     <input id="summerFreshBasePrice" type="hidden" value="450">
-                    <h5>quantity: &nbsp;&nbsp;<input id="summerFreshQuantity" name="summerFreshQuantity" type="number" value="1" onclick="this.select()" oninput=summerFresh.flowerPrice()></h5>
-                    <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="summerFreshStock" name="summerFreshStock" disabled type="number" value="500"></h5>
+                    <h5>quantity: &nbsp;&nbsp;<input id="summerFreshQuantity" name="summerFreshQuantity" type="number"
+                            value="0" onclick="this.select()" oninput=summerFresh.flowerPrice()></h5>
+                    <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="summerFreshStock" name="summerFreshStock" disabled
+                            type="number" value="500"></h5>
                     <input id="button" type="button" value="Add to cart" onclick="summerFresh.flowerBill()">
                 </div>
                 <div class="product" id="easterflowers">
                     <img src="images/product-03.jpg" alt="Easter Flowers">
                     <h4>Easter Flowers</h4>
-                    <h5>price(rsd):<input id="easterFlowersPrice" disabled type="number" name="Easter Flowers" value="600"></h5>
+                    <h5>price(rsd):<input id="easterFlowersPrice" disabled type="number" name="Easter Flowers"
+                            value="600"></h5>
                     <input id="easterFlowersBasePrice" type="hidden" value="600">
-                    <h5>quantity: &nbsp;&nbsp;<input id="easterFlowersQuantity" name="easterFlowersQuantity" type="number" value="1" onclick="this.select()" oninput=easterFlowers.flowerPrice()></h5>
-                    <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="easterFlowersStock" name="esterFlowersStock" disabled type="number" value="500"></h5>
+                    <h5>quantity: &nbsp;&nbsp;<input id="easterFlowersQuantity" name="easterFlowersQuantity"
+                            type="number" value="0" onclick="this.select()" oninput=easterFlowers.flowerPrice()></h5>
+                    <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="easterFlowersStock" name="esterFlowersStock" disabled
+                            type="number" value="500"></h5>
                     <input id="button" type="button" value="Add to cart" onclick="easterFlowers.flowerBill()">
                 </div>
                 <div class="product" id="tomumwithlove">
                     <img src="images/product-04.jpg" alt="To Mum With Love">
                     <h4>To Mum With Love</h4>
-                    <h5>price(rsd):<input id="toMumPrice" disabled type="number" name="To Mum With Love" value="550"></h5>
+                    <h5>price(rsd):<input id="toMumPrice" disabled type="number" name="To Mum With Love" value="550">
+                    </h5>
                     <input id="toMumBasePrice" type="hidden" value="550">
-                    <h5>quantity: &nbsp;&nbsp;<input id="toMumQuantity" name="toMumQuantity" type="number" value="1" onclick="this.select()" oninput=toMum.flowerPrice()></h5>
-                    <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="toMumStock" name="toMumStock" disabled type="number" value="500"></h5>
+                    <h5>quantity: &nbsp;&nbsp;<input id="toMumQuantity" name="toMumQuantity" type="number" value="0"
+                            onclick="this.select()" oninput=toMum.flowerPrice()></h5>
+                    <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="toMumStock" name="toMumStock" disabled type="number"
+                            value="500"></h5>
                     <input id="button" type="button" value="Add to cart" onclick="toMum.flowerBill()">
                 </div>
                 <div class="product" id="pinkperfection">
                     <img src="images/product-05.jpg" alt="Pink Perfection">
                     <h4>Pink Perfection</h4>
-                    <h5>price(rsd):<input id="pinkPerfectionPrice" disabled type="number" name="Pink Perfection" value="550"></h5>
+                    <h5>price(rsd):<input id="pinkPerfectionPrice" disabled type="number" name="Pink Perfection"
+                            value="550"></h5>
                     <input id="pinkPerfectionBasePrice" type="hidden" value="550">
-                    <h5>quantity: &nbsp;&nbsp;<input id="pinkPerfectionQuantity" name="pinkPerfectionQuantity" type="number" value="1" onclick="this.select()" oninput=pinkPerfection.flowerPrice()></h5>
-                    <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="pinkPerfectionStock" name="pinkPerfectionStock" disabled type="number" value="500"></h5>
+                    <h5>quantity: &nbsp;&nbsp;<input id="pinkPerfectionQuantity" name="pinkPerfectionQuantity"
+                            type="number" value="0" onclick="this.select()" oninput=pinkPerfection.flowerPrice()></h5>
+                    <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="pinkPerfectionStock" name="pinkPerfectionStock" disabled
+                            type="number" value="500"></h5>
                     <input id="button" type="button" value="Add to cart" onclick="pinkPerfection.flowerBill()">
                     <input type="hidden" id="finalPrice" value="0">
                 </div>
             </div>
-    </div>  
+        </div>
         <div class="item7">
-                <div class="maintittle" id="itm7tittle">Let Us Make Your Wedding Beautiful</div>
+            <div class="maintittle" id="itm7tittle">Let Us Make Your Wedding Beautiful</div>
         </div>
         <div class="item8">
-                <div class="subtittle">ABOUT US</div>
-                <br>
-                <div class="about">
+            <div class="subtittle">ABOUT US</div>
+            <br>
+            <div class="about">
                 Artfuly designed. Creative. Fresh.
                 <br><br>
                 The Eufloria has provided quality designs and fresh arrangements for over 150 years worldwide.
                 <br><br>
-                We take pride in creating the perfect floral arrangement and gift for each customer. Our goal is to exceed your expectations with attention to detail and exceptional service.
+                We take pride in creating the perfect floral arrangement and gift for each customer. Our goal is to
+                exceed your expectations with attention to detail and exceptional service.
                 <br><br>
                 Your unique style and desired message will be conveyed through each floral design.
             </div>
@@ -130,51 +161,52 @@
         </div>
         <div class="item10"></div>
         <div class="item11" id="contact">
-                CONTACT
-                <br><br>
-                CODE by Comtrade
-                <br>
-                +381 11 201 55 00
-                <br>
-                +381 65 209 66 82
-                <br>
-                info@code.edu.rs
-                <br><br>
-                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f fa-lg"></i></a>
-                <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-lg"></i></a>
-                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
-                <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube fa-lg"></i></a>
-            </div>
+            CONTACT
+            <br><br>
+            CODE by Comtrade
+            <br>
+            +381 11 201 55 00
+            <br>
+            +381 65 209 66 82
+            <br>
+            info@code.edu.rs
+            <br><br>
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f fa-lg"></i></a>
+            <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-lg"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube fa-lg"></i></a>
+        </div>
         <div class="item12">
-                MORE INFO
-                <br><br>
-                <a href="#">Shipping</a>
-                <br>
-                <a href="#">FAQ</a>
-                <br>
-                <a href="#">Returns & Refunds</a>
-                <br>
-                <a href="#">Privacy Policy</a>
-                <br>
-                <a href="#">Terms & Conditions</a>
+            MORE INFO
+            <br><br>
+            <a href="#">Shipping</a>
+            <br>
+            <a href="#">FAQ</a>
+            <br>
+            <a href="#">Returns & Refunds</a>
+            <br>
+            <a href="#">Privacy Policy</a>
+            <br>
+            <a href="#">Terms & Conditions</a>
         </div>
         <div class="item13">
-                Don't Want To Miss Out?
+            Don't Want To Miss Out?
+            <br><br>
+            Sign up for our newletter and hear first about exciting promotions.
+            <br><br>
+            <div class="form">
+                <label for="email">email:</label>
+                <input type="text" placeholder="your email" name="email" required>
                 <br><br>
-                Sign up for our newletter and hear first about exciting promotions.
-                <br><br>
-                <div class="form">
-                        <label for="email">email:</label>
-                        <input type="text" placeholder="your email" name="email" required>
-                        <br><br>
-                        <button type="button" id="button">Sign Up</button>
-                      </div>
+                <button type="button" id="button">Sign Up</button>
+            </div>
         </div>
         <hr>
         <div class="item14"></div>
         <div class="item15">
             Copyright &copy; - Darko Mingovski 2018;
         </div>
-      </div>
+    </div>
 </body>
+
 </html>

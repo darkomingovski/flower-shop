@@ -14,6 +14,7 @@ body {
       'shop shop shop shop shop'
       'pic pic pic pic pic'
       'about about about about about'
+      'footer footer footer footer footer'
       'contact1 contact2 contact3 contact4 contact5'
       'copy copy copy copy copy';
 }
@@ -24,7 +25,6 @@ body {
     background-color: white;
     z-index: 1;
 }
-
 .item1 { 
     grid-area: menuleft;
     padding-top: 3%;
@@ -228,9 +228,24 @@ input {
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
   }
-#bill, #bill1, #bill2, #bill3, #bill4, #bill5 {
+  #bill, #bill1, #bill2, #bill3, #bill4, #bill5 {
     text-align: center;
     padding-bottom: 2%;
+}
+#bill {
+    display: none;
+}
+#bill1 {
+    display: none;
+}
+#bill2 {
+    display: none;
+}
+#bill3 {
+    display: none;
+}
+#bill4 {
+    display: none;
 }
 #orderbtn {
     width: 15%;

@@ -1,6 +1,5 @@
 var finalPrice = 0;
 var flowersList = [];
-var elements = document.getElementsByTagName('bill');
 function checkSource() {
     for (var i = 0; i < flowersList.length; i++) {
         flowersList[i].quantitySource();
@@ -13,28 +12,30 @@ class Flower {
         this.basePrice = basePrice;
         this.totalPrice = totalPrice;
         this.stock = stock;
+        sessionStorage.setItem((this.totalPrice).name, (this.totalPrice).value);
+        sessionStorage.setItem((this.quantity).name, (this.quantity).value);
         flowersList.push(this);
     };
     flowerPrice() {
-        if ((+(this.quantity).value > 0 && Number.isInteger(+(this.quantity).value)) || (this.quantity).value == '') {
+        if ((+(this.quantity).value >= 0 && Number.isInteger(+(this.quantity).value)) || (this.quantity).value == '') {
             (this.totalPrice).value = (this.basePrice).value * (this.quantity).value;
         }
         else {
             alert("That is not a valid amount number.");
-            (this.quantity).value = 1;
+            (this.quantity).value = 0;
         }
     };
     flowerBill() {
-        if ((this.quantity).value == '') {
+        if ((this.quantity).value == '' || (this.quantity).value == 0) {
             alert("Sorry your input is invalid. Please enter valid quantity number.");
-            (this.quantity).value = 1;
+            (this.quantity).value = 0;
         }
         else if (((this.stock).value) == 0) {
             alert("Sorry, we have run out of Spring Magic. Please come back later.");
         }
         else if (+(this.quantity).value > +(this.stock).value) {
             alert("Sorry, we do not have desired amount of Spring Magic. Total amount available is: " + (this.stock).value);
-            (this.quantity).value = 1;
+            (this.quantity).value = 0;
         }
         else {
             (this.stock).value -= (this.quantity).value;
@@ -66,7 +67,7 @@ function makeFlower() {
 function totalPrice() {
     if (finalPrice != 0) {
         sessionStorage.setItem("finalprice", finalPrice);
-        location.replace("bill.html")
+        location.replace("bill.html");
         finalPrice = 0;
         for (var i = 0; i < flowersList.length; i++) {
             flowersList[i].quantity = 1;

@@ -6,18 +6,21 @@
     <title>Eufloria</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <link href="https://fonts.googleapis.com/css?family=Martel+Sans|Petit+Formal+Script|Raleway:300|Roboto:100" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Martel+Sans|Petit+Formal+Script|Raleway:300|Roboto:100"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 </head>
-<body onload="order(); order1(); order2(); order3(); order4()">
+
+<body onload="order();">
     <div class="grid-container">
         <div class="item0"></div>
         <div class="item1">
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="#">SHOP</a></li>
-                    <li><a href="index.html#about">ABOUT</a></li>
-                </ul>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="#">SHOP</a></li>
+                <li><a href="index.html#about">ABOUT</a></li>
+            </ul>
         </div>
         <div class="item2">
             <h1><a href="#">Eufloria</a></h1>
@@ -29,7 +32,7 @@
             </ul>
         </div>
         <div class="item4">
-               
+
         </div>
         <div class="item5">
             <div class="subtittle">PLEASE REVIEW YOUR SHOPPING CART BEFORE ORDERING</div>
@@ -43,18 +46,19 @@
                     <div id="bill4"></div><br><br>
                     <div id="bill5"></div>
                     <br><br>
-                    <a href="index.html"><input id="orderbtn" type="button" value="Place order" onclick="placeOrder()"></a>
+                    <a href="index.html"><input id="orderbtn" type="button" value="Place order"
+                            onclick="placeOrder()"></a>
+                </div>
             </div>
-            </div>  
         </div>
         <div class="item6">
-                
-        </div>  
+
+        </div>
         <div class="item7">
-                
+
         </div>
         <div class="item8">
-               
+
         </div>
         <div class="item9" id="about">
             <img src="images/instagram-01.jpg" alt="footer image">
@@ -65,103 +69,90 @@
         </div>
         <div class="item10"></div>
         <div class="item11" id="contact">
-                CONTACT
-                <br><br>
-                CODE by Comtrade
-                <br>
-                +381 11 201 55 00
-                <br>
-                +381 65 209 66 82
-                <br>
-                info@code.edu.rs
-                <br><br>
-                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f fa-lg"></i></a>
-                <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-lg"></i></a>
-                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
-                <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube fa-lg"></i></a>
-            </div>
+            CONTACT
+            <br><br>
+            CODE by Comtrade
+            <br>
+            +381 11 201 55 00
+            <br>
+            +381 65 209 66 82
+            <br>
+            info@code.edu.rs
+            <br><br>
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f fa-lg"></i></a>
+            <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-lg"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube fa-lg"></i></a>
+        </div>
         <div class="item12">
-                MORE INFO
-                <br><br>
-                <a href="#">Shipping</a>
-                <br>
-                <a href="#">FAQ</a>
-                <br>
-                <a href="#">Returns & Refunds</a>
-                <br>
-                <a href="#">Privacy Policy</a>
-                <br>
-                <a href="#">Terms & Conditions</a>
+            MORE INFO
+            <br><br>
+            <a href="#">Shipping</a>
+            <br>
+            <a href="#">FAQ</a>
+            <br>
+            <a href="#">Returns & Refunds</a>
+            <br>
+            <a href="#">Privacy Policy</a>
+            <br>
+            <a href="#">Terms & Conditions</a>
         </div>
         <div class="item13">
-                Don't Want To Miss Out?
+            Don't Want To Miss Out?
+            <br><br>
+            Sign up for our newletter and hear first about exciting promotions.
+            <br><br>
+            <div class="form">
+                <label for="email">email:</label>
+                <input type="text" placeholder="your email" name="email" required>
                 <br><br>
-                Sign up for our newletter and hear first about exciting promotions.
-                <br><br>
-                <div class="form">
-                        <label for="email">email:</label>
-                        <input type="text" placeholder="your email" name="email" required>
-                        <br><br>
-                        <button type="button" id="button">Sign Up</button>
-                      </div>
+                <button type="button" id="button">Sign Up</button>
+            </div>
         </div>
         <hr>
         <div class="item14"></div>
         <div class="item15">
             Copyright &copy; - Darko Mingovski 2018;
         </div>
-      </div>
-      <script>
-          function order() {
-              if(sessionStorage.getItem('springMagicqt') == null || sessionStorage.getItem('springMagicqt') == 0) {
-                document.getElementById('bill').style.display='none'
-              }
-              else {document.getElementById("bill").innerHTML = sessionStorage.getItem('springMagicqt') + " pieces of Spring Magic flower with total price of " + sessionStorage.getItem('springMagic') + " RSD"}
-          }
-
-          function order1() {
-              if(sessionStorage.getItem('summerFreshqt') == null || sessionStorage.getItem('summerFreshqt') == 0) {
-                document.getElementById('bill1').style.display='none'
-              }
-              else {document.getElementById("bill1").innerHTML = sessionStorage.getItem('summerFreshqt') + " pieces of Summer Fresh flower with total price of " + sessionStorage.getItem('summerFresh') + " RSD"}
-          }
-
-          function order2() {
-              if(sessionStorage.getItem('easterFlowersqt') == null || sessionStorage.getItem('easterFlowersqt') == 0) {
-                document.getElementById('bill2').style.display='none'
-              }
-              else {document.getElementById("bill2").innerHTML =sessionStorage.getItem('easterFlowersqt') + " pieces of Easter Flowers flower with total price of " + sessionStorage.getItem('easterFlowers') + " RSD"}
-          }
-
-          function order3() {
-              if(sessionStorage.getItem('toMumqt') == null || sessionStorage.getItem('toMumqt') == 0) {
-                document.getElementById('bill3').style.display='none'
-              }
-              else {document.getElementById("bill3").innerHTML =sessionStorage.getItem('toMumqt') + " pieces of To Mum With Love flower with total price of " + sessionStorage.getItem('toMum') + " RSD"}
-          }
-
-          function order4() {
-              if(sessionStorage.getItem('pinkPerfectionqt') == null || sessionStorage.getItem('pinkPerfectionqt') == 0) {
-                document.getElementById('bill4').style.display='none'
-              }
-              else {document.getElementById("bill4").innerHTML = sessionStorage.getItem('pinkPerfectionqt') + " pieces of Pink Perfection flower with total price of " + sessionStorage.getItem('pinkPerfection') + " RSD"}
-          }
-
-        document.getElementById("bill5").innerHTML = "Total payment is " + sessionStorage.getItem('finalprice') + " RSD";
+    </div>
+    <script>
+        function order() {
+            if (sessionStorage.getItem('springMagicQuantity') !== '0') {
+                document.getElementById("bill").innerHTML = sessionStorage.getItem('springMagicQuantity') + " pieces of Spring Magic flower with total price of " + sessionStorage.getItem('Spring Magic') + " RSD";
+                document.getElementById('bill').style.display='block';
+            };
+            if (sessionStorage.getItem('summerFreshQuantity') !== '0') {
+                document.getElementById("bill1").innerHTML = sessionStorage.getItem('summerFreshQuantity') + " pieces of Summer Fresh flower with total price of " + sessionStorage.getItem('Summer Fresh') + " RSD";
+                document.getElementById('bill1').style.display='block';
+            };
+            if (sessionStorage.getItem('easterFlowersQuantity') !== '0') {
+                document.getElementById("bill2").innerHTML = sessionStorage.getItem('easterFlowersQuantity') + " pieces of Easter Flowers flower with total price of " + sessionStorage.getItem('Easter Flowers') + " RSD";
+                document.getElementById('bill2').style.display='block';
+            };
+            if (sessionStorage.getItem('toMumQuantity') !== '0') {
+                document.getElementById("bill3").innerHTML = sessionStorage.getItem('toMumQuantity') + " pieces of To Mum With Love flower with total price of " + sessionStorage.getItem('To Mum With Love') + " RSD";
+                document.getElementById('bill3').style.display='block';
+            };
+            if (sessionStorage.getItem('pinkPerfectionQuantity') !== '0') {
+                document.getElementById("bill4").innerHTML = sessionStorage.getItem('pinkPerfectionQuantity') + " pieces of Pink Perfection flower with total price of " + sessionStorage.getItem('Pink Perfection') + " RSD";
+                document.getElementById('bill4').style.display='block';
+            };
+            document.getElementById("bill5").innerHTML = "Total payment is " + sessionStorage.getItem('finalprice') + " RSD"
+        };
 
         function placeOrder() {
             alert("Your order is confirmed. Thank you for shopping with us!");
-            sessionStorage.setItem('springMagic', 0);
-            sessionStorage.setItem('springMagicqt', 0);
-            sessionStorage.setItem('summerFresh', 0);
-            sessionStorage.setItem('summerFreshqt', 0);
-            sessionStorage.setItem('easterFlowers', 0);
-            sessionStorage.setItem('easterFlowersqt', 0);
-            sessionStorage.setItem('toMum', 0);
-            sessionStorage.setItem('toMumqt', 0);
-            sessionStorage.setItem('pinkPerfection', 0);
-            sessionStorage.setItem('pinkPerfectionqt', 0);
-        }
-      </script>
+            sessionStorage.setItem('Spring Magic', 0);
+            sessionStorage.setItem('springMagicQuantity', 0);
+            sessionStorage.setItem('Summer Fresh', 0);
+            sessionStorage.setItem('summerFreshQuantity', 0);
+            sessionStorage.setItem('Easter Flowers', 0);
+            sessionStorage.setItem('easterFlowersQuantity', 0);
+            sessionStorage.setItem('To Mum With Love', 0);
+            sessionStorage.setItem('toMumQuantity', 0);
+            sessionStorage.setItem('Pink Perfection', 0);
+            sessionStorage.setItem('pinkPerfectionQuantity', 0);
+        };
+    </script>
 </body>
 </html>
