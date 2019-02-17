@@ -56,13 +56,11 @@ class Flower {
     };
 };
 
-function makeFlower() {
-    springMagic = new Flower(springMagicQuantity, springMagicBasePrice, springMagicPrice, springMagicStock);
-    summerFresh = new Flower(summerFreshQuantity, summerFreshBasePrice, summerFreshPrice, summerFreshStock);
-    easterFlowers = new Flower(easterFlowersQuantity, easterFlowersBasePrice, easterFlowersPrice, easterFlowersStock);
-    toMum = new Flower(toMumQuantity, toMumBasePrice, toMumPrice, toMumStock);
-    pinkPerfection = new Flower(pinkPerfectionQuantity, pinkPerfectionBasePrice, pinkPerfectionPrice, pinkPerfectionStock);
-};
+const springMagic = new Flower(springMagicQuantity, springMagicBasePrice, springMagicPrice, springMagicStock);
+const summerFresh = new Flower(summerFreshQuantity, summerFreshBasePrice, summerFreshPrice, summerFreshStock);
+const easterFlowers = new Flower(easterFlowersQuantity, easterFlowersBasePrice, easterFlowersPrice, easterFlowersStock);
+const toMum = new Flower(toMumQuantity, toMumBasePrice, toMumPrice, toMumStock);
+const pinkPerfection = new Flower(pinkPerfectionQuantity, pinkPerfectionBasePrice, pinkPerfectionPrice, pinkPerfectionStock);
 
 function totalPrice() {
     if (finalPrice != 0) {
