@@ -4,28 +4,22 @@ body {
     font-size: 1vw;
     background-color: white;
 }
+
 .grid-container {
     display: grid;
     max-width: 100%;
-    grid-template-areas:
-      'empty menuleft tittle tittle menuright'
-      'logo logo logo logo logo'
-      'main main main main main'
-      'shop shop shop shop shop'
-      'pic pic pic pic pic'
-      'about about about about about'
-      'footer footer footer footer footer'
-      'contact1 contact2 contact3 contact4 contact5'
-      'copy copy copy copy copy';
+    grid-template-areas: 'empty menuleft tittle tittle menuright' 'logo logo logo logo logo' 'main main main main main' 'shop shop shop shop shop' 'bill bill bill bill bill' 'pic pic pic pic pic' 'about about about about about' 'footer footer footer footer footer' 'contact1 contact2 contact3 contact4 contact5' 'copy copy copy copy copy';
 }
-.item0 { 
+
+.item0 {
     grid-area: empty;
     position: sticky;
-    top: 0; 
+    top: 0;
     background-color: white;
     z-index: 1;
 }
-.item1 { 
+
+.item1 {
     grid-area: menuleft;
     padding-top: 3%;
     position: sticky;
@@ -33,16 +27,19 @@ body {
     background-color: white;
     z-index: 1;
 }
+
 .item1 ul li {
     list-style-type: none;
     display: inline;
     padding-right: 2%;
 }
+
 .item1 a {
     position: relative;
     text-decoration: none;
     color: black;
 }
+
 .item1 a:before {
     content: "";
     position: absolute;
@@ -55,12 +52,14 @@ body {
     transform: scaleX(0);
     transition: all 0.3s ease-in-out 0s;
 }
+
 .item1 a:hover:before {
     visibility: visible;
     transform: scaleX(1);
 }
-.item2 { 
-    grid-area: tittle; 
+
+.item2 {
+    grid-area: tittle;
     font-family: 'Petit Formal Script', cursive;
     padding-left: 15%;
     position: sticky;
@@ -68,38 +67,44 @@ body {
     background-color: white;
     z-index: 1;
 }
+
 .item2 a {
     text-decoration: none;
     color: black;
 }
-.item3 { 
+
+.item3 {
     grid-area: menuright;
-    padding-top: 3%; 
+    padding-top: 3%;
     position: sticky;
     top: 0;
     background-color: white;
     z-index: 1;
 }
+
 .item3 ul li {
     list-style-type: none;
     display: inline;
 }
+
 .item3 ul li :nth-child(1) {
     padding-right: 3%;
 }
+
 .item3 a {
     text-decoration: none;
     color: black;
 }
-.item4 { 
+
+.item4 {
     grid-area: logo;
     background-color: #f3f3f3;
     background-image: url(images/top-banner.png);
     background-position-x: right;
     background-repeat: no-repeat;
     background-size: 45%;
-    
 }
+
 .logotext {
     font-size: 3vw;
     font-family: 'Roboto', sans-serif;
@@ -108,56 +113,73 @@ body {
     margin-top: 8%;
     margin-bottom: 8%;
 }
-.item5 { 
-    grid-area: main; 
+
+.item5 {
+    grid-area: main;
     text-align: center;
 }
+
 .subtittle {
     margin-top: 5%;
 }
+
 .maintittle {
     font-family: 'Raleway', sans-serif;
     font-size: 2.2vw;
 }
+
 .main img {
     float: right;
     margin: 0% 5% 0% 5%;
 }
+
 .maincontent {
     margin: 5% 5% 0% 5%;
     text-align: left;
     font-family: 'Raleway', sans-serif;
 }
-.item6 { 
+
+.item6 {
     grid-area: shop;
     text-align: center;
 }
-.item7 { 
+
+#item6 {
+    display: block;
+}
+
+.item7 {
     grid-area: pic;
-    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(images/event-banner.jpg);
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(images/event-banner.jpg);
     background-attachment: fixed;
     text-align: center;
 }
+
 #itm7tittle {
     margin: 10% 0 10% 0;
     color: white;
 }
-.item8 { 
+
+.item8 {
     grid-area: about;
     text-align: center;
 }
+
 .about {
     font-family: 'Raleway', sans-serif;
 }
-.item9 { 
+
+.item9 {
     grid-area: footer;
     margin-top: 5%;
     margin-left: 4%;
 }
+
 .item10 {
     grid-area: contact1;
     width: 19vw;
 }
+
 .item11 {
     grid-area: contact2;
     font-family: 'Raleway', sans-serif;
@@ -166,10 +188,12 @@ body {
     border-right: 1px solid gray;
     margin: 5% 0 5% 0;
 }
+
 #contact a {
     color: black;
     padding-right: 5%;
 }
+
 .item12 {
     grid-area: contact3;
     font-family: 'Raleway', sans-serif;
@@ -178,6 +202,7 @@ body {
     border-right: 1px solid gray;
     margin: 5% 0 5% 0;
 }
+
 .item13 {
     grid-area: contact4;
     font-family: 'Raleway', sans-serif;
@@ -185,10 +210,12 @@ body {
     width: 19vw;
     margin: 5% 0 5% 0;
 }
+
 .item14 {
     grid-area: contact5;
     width: 19vw;
 }
+
 .item15 {
     grid-area: copy;
     text-align: center;
@@ -196,70 +223,68 @@ body {
     border-top: 1px solid grey;
     padding-top: 1%;
 }
+
+#item16 {
+    grid-area: shop;
+    display: none;
+    text-align: center;
+}
+
 .shop {
     display: flex;
     flex-wrap: wrap;
     padding-bottom: 5%;
     font-family: 'Raleway', sans-serif;
 }
+
 .product {
     max-width: 20%;
 }
+
 .product img {
-    width: 60%;
+    width: 70%;
 }
+
 .product img:hover {
     transform: scale(1.2);
 }
+
+.basePrice, .productQuantity, .price {
+    margin-bottom: 5%;
+    
+}
+
 #button {
     background-color: red;
     border: none;
     color: white;
-    padding: 5px 5px;
+    padding: 5px 10px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    margin: 0px 0px;
+    margin-top: 5%;
     cursor: pointer;
     border-radius: 10px;
-  }
+}
+#cartButton {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1%;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
 input {
     width: 40%;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
-  }
-  #bill, #bill1, #bill2, #bill3, #bill4, #bill5 {
-    text-align: center;
-    padding-bottom: 2%;
 }
-#bill {
-    display: none;
-}
-#bill1 {
-    display: none;
-}
-#bill2 {
-    display: none;
-}
-#bill3 {
-    display: none;
-}
-#bill4 {
-    display: none;
-}
-#orderbtn {
-    width: 15%;
-    background-color: red;
-    border: none;
-    color: white;
-    padding: 5px 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin-left: 43%;  
-    cursor: pointer;
-    border-radius: 10px;
-}
+
 @media only screen and (max-width: 2560px) {
     .main img {
         width: 50%;
@@ -268,6 +293,7 @@ input {
         width: 19%;
     }
 }
+
 @media only screen and (max-width: 720px) {
     body {
         font-size: 2vw;
@@ -282,16 +308,7 @@ input {
         font-size: 1.5vw;
     }
     .grid-container {
-        grid-template-areas:
-      'menuleft menuleft tittle tittle menuright'
-      'logo logo logo logo logo'
-      'main main main main main'
-      'shop shop shop shop shop'
-      'pic pic pic pic pic'
-      'about about about about about'
-      'footer footer footer footer footer'
-      'contact1 contact2 contact3 contact4 contact5'
-      'copy copy copy copy copy';
+        grid-template-areas: 'menuleft menuleft tittle tittle menuright' 'logo logo logo logo logo' 'main main main main main' 'shop shop shop shop shop' 'pic pic pic pic pic' 'about about about about about' 'footer footer footer footer footer' 'contact1 contact2 contact3 contact4 contact5' 'copy copy copy copy copy';
     }
     .product, #button {
         font-size: 1vw;

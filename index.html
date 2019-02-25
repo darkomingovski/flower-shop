@@ -14,7 +14,7 @@
     <script src="main.js" defer></script>
 </head>
 
-<body onload="checkSource()">
+<body onload="createCatalog(); checkSource()">
     <div class="grid-container">
         <div class="item0"></div>
         <div class="item1">
@@ -30,7 +30,7 @@
         <div class="item3">
             <ul>
                 <li><a href="#contact"><i class="fas fa-phone fa-lg"></i></a></li>
-                <li><a href="#shop"><i class="fas fa-cart-plus fa-lg" onclick=totalPrice()></i></a></li>
+                <li><a href="#cart"><i class="fas fa-cart-plus fa-lg" onclick="totalPrice()"></i></a></li>
             </ul>
         </div>
         <div class="item4">
@@ -60,80 +60,18 @@
                 </div>
             </div>
         </div>
-        <div class="item6">
+        <div class="item6" id="item6">
             <div class="subtittle" id="shop">SHOP</div>
             <div class="maintittle">Our Seasonal Recommendations</div>
             <br>
-            <div class="shop">
-                <div class="product" id="springmagic">
-                    <img src="images/product-01.jpg" alt="Spring Magic">
-                    <h4>Spring Magic</h4>
-                    <p>
-                        <h5>price(rsd): <input id="springMagicPrice" disabled="disabled" name="Spring Magic"
-                                type="number" value="550"></h5>
-                    </p>
-                    <input id="springMagicBasePrice" type="hidden" value="550">
-                    <p>
-                        <h5>quantity: &nbsp;&nbsp;<input id="springMagicQuantity" name="springMagicQuantity"
-                                type="number" value="0" onclick="this.select()" oninput="springMagic.flowerPrice()">
-                        </h5>
-                    </p>
-                    <p>
-                        <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="springMagicStock" name="springMagicStock" disabled
-                                type="number" value="500"></h5>
-                    </p>
-                    <input id="button" type="button" value="Add to cart" onclick="springMagic.flowerBill()">
-                </div>
-                <div class="product" id="summerfresh">
-                    <img src="images/product-02.jpg" alt="Summer Fresh">
-                    <h4>Summer Fresh</h4>
-                    <h5>price(rsd):<input id="summerFreshPrice" disabled type="number" name="Summer Fresh" value="450">
-                    </h5>
-                    <input id="summerFreshBasePrice" type="hidden" value="450">
-                    <h5>quantity: &nbsp;&nbsp;<input id="summerFreshQuantity" name="summerFreshQuantity" type="number"
-                            value="0" onclick="this.select()" oninput=summerFresh.flowerPrice()></h5>
-                    <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="summerFreshStock" name="summerFreshStock" disabled
-                            type="number" value="500"></h5>
-                    <input id="button" type="button" value="Add to cart" onclick="summerFresh.flowerBill()">
-                </div>
-                <div class="product" id="easterflowers">
-                    <img src="images/product-03.jpg" alt="Easter Flowers">
-                    <h4>Easter Flowers</h4>
-                    <h5>price(rsd):<input id="easterFlowersPrice" disabled type="number" name="Easter Flowers"
-                            value="600"></h5>
-                    <input id="easterFlowersBasePrice" type="hidden" value="600">
-                    <h5>quantity: &nbsp;&nbsp;<input id="easterFlowersQuantity" name="easterFlowersQuantity"
-                            type="number" value="0" onclick="this.select()" oninput=easterFlowers.flowerPrice()></h5>
-                    <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="easterFlowersStock" name="esterFlowersStock" disabled
-                            type="number" value="500"></h5>
-                    <input id="button" type="button" value="Add to cart" onclick="easterFlowers.flowerBill()">
-                </div>
-                <div class="product" id="tomumwithlove">
-                    <img src="images/product-04.jpg" alt="To Mum With Love">
-                    <h4>To Mum With Love</h4>
-                    <h5>price(rsd):<input id="toMumPrice" disabled type="number" name="To Mum With Love" value="550">
-                    </h5>
-                    <input id="toMumBasePrice" type="hidden" value="550">
-                    <h5>quantity: &nbsp;&nbsp;<input id="toMumQuantity" name="toMumQuantity" type="number" value="0"
-                            onclick="this.select()" oninput=toMum.flowerPrice()></h5>
-                    <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="toMumStock" name="toMumStock" disabled type="number"
-                            value="500"></h5>
-                    <input id="button" type="button" value="Add to cart" onclick="toMum.flowerBill()">
-                </div>
-                <div class="product" id="pinkperfection">
-                    <img src="images/product-05.jpg" alt="Pink Perfection">
-                    <h4>Pink Perfection</h4>
-                    <h5>price(rsd):<input id="pinkPerfectionPrice" disabled type="number" name="Pink Perfection"
-                            value="550"></h5>
-                    <input id="pinkPerfectionBasePrice" type="hidden" value="550">
-                    <h5>quantity: &nbsp;&nbsp;<input id="pinkPerfectionQuantity" name="pinkPerfectionQuantity"
-                            type="number" value="0" onclick="this.select()" oninput=pinkPerfection.flowerPrice()></h5>
-                    <h5>pcs left: &nbsp;&nbsp;&nbsp;<input id="pinkPerfectionStock" name="pinkPerfectionStock" disabled
-                            type="number" value="500"></h5>
-                    <input id="button" type="button" value="Add to cart" onclick="pinkPerfection.flowerBill()">
-                    <input type="hidden" id="finalPrice" value="0">
-                </div>
+            <div class="shop" id="container">
             </div>
+            <div id="cart"></div>
+        </div>
+        <div class="item16" id="item16">
+            <div class="subtittle">PLEASE REVIEW YOUR SHOPPING CART BEFORE ORDERING</div>
+            <div class="maintittle">Items In Cart</div>
+            <br><br>
         </div>
         <div class="item7">
             <div class="maintittle" id="itm7tittle">Let Us Make Your Wedding Beautiful</div>
