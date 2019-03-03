@@ -144,7 +144,7 @@ body {
     text-align: center;
 }
 
-#item6 {
+#shop {
     display: block;
 }
 
@@ -224,10 +224,14 @@ body {
     padding-top: 1%;
 }
 
-#item16 {
+#cart {
     grid-area: shop;
     display: none;
     text-align: center;
+}
+
+#purchased0, #purchased1, #purchased2, #purchased3, #purchased4 {
+    text-align: right;
 }
 
 .shop {
@@ -266,7 +270,7 @@ body {
     cursor: pointer;
     border-radius: 10px;
 }
-#cartButton {
+.cartButton {
     background-color: red;
     border: none;
     color: white;
@@ -277,6 +281,10 @@ body {
     margin-top: 1%;
     cursor: pointer;
     border-radius: 10px;
+}
+
+.radiobtn {
+    width: 10%;
 }
 
 input {

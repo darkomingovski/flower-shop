@@ -11,7 +11,6 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <script src="main.js" defer></script>
 </head>
 
 <body onload="createCatalog(); checkSource()">
@@ -30,7 +29,7 @@
         <div class="item3">
             <ul>
                 <li><a href="#contact"><i class="fas fa-phone fa-lg"></i></a></li>
-                <li><a href="#cart"><i class="fas fa-cart-plus fa-lg" onclick="totalPrice()"></i></a></li>
+                <li><a href="#show-cart"><i class="fas fa-cart-plus fa-lg" onclick="totalPrice()"></i></a></li>
             </ul>
         </div>
         <div class="item4">
@@ -60,17 +59,18 @@
                 </div>
             </div>
         </div>
-        <div class="item6" id="item6">
+        <div class="item6" id="shop">
             <div class="subtittle" id="shop">SHOP</div>
             <div class="maintittle">Our Seasonal Recommendations</div>
             <br>
             <div class="shop" id="container">
             </div>
-            <div id="cart"></div>
+            <div id="show-cart"></div>
         </div>
-        <div class="item16" id="item16">
+        <div class="item16" id="cart">
             <div class="subtittle">PLEASE REVIEW YOUR SHOPPING CART BEFORE ORDERING</div>
             <div class="maintittle">Items In Cart</div>
+            <div id="purchased"></div>
             <br><br>
         </div>
         <div class="item7">
@@ -145,6 +145,8 @@
             Copyright &copy; - Darko Mingovski 2018;
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

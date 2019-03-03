@@ -1,13 +1,7 @@
-var finalPrice = 0;
-var flowersList = [];
-var orderedItems = [];
-var br = document.createElement("br");
-function checkSource() {
-    for (var i = 0; i < flowersList.length; i++) {
-        flowersList[i].quantitySource();
-    };
-};
-
+let finalPrice = 0;
+let flowersList = [];
+let orderedItems = [];
+let $container = $('#container');
 class Flower {
     constructor(name, quantity, basePrice, price, stock, img) {
         this.name = name;
@@ -21,31 +15,34 @@ class Flower {
         flowersList.push(this);
     };
     flowerPrice() {
-        this.quantity = +event.target.value;
+        this.quantity = +$(`#quantity${this.name}`).val();
         if ((this.quantity >= 0 && Number.isInteger(this.quantity)) || this.quantity == '') {
             this.price = this.basePrice * this.quantity;
-            document.getElementById('total' + this.name).value = this.price;
+            $(`#total${this.name}`).val(this.price);
         }
         else {
             alert("That is not a valid amount number.");
             this.quantity = 0;
-            document.getElementById('quantity' + this.name).value = 0;
-            document.getElementById('total' + this.name).value = 0;
+            $(`#quantity${this.name}`).val(0);
+            $(`#total${this.name}`).val(0);
         };
     };
     flowerBill() {
         if (this.quantity == '' || this.quantity == 0) {
             alert("Sorry your input is invalid. Please enter valid quantity number.");
             this.quantity = 0;
-            document.getElementById('quantity' + this.name).value = 0;
         }
         else if (this.stock == 0) {
             alert("Sorry, we have run out of " + this.name + " flower. Please come back later.");
+            $(`#quantity${this.name}`).val(0);
+            $(`#total${this.name}`).val(0);
         }
         else if (this.quantity > this.stock) {
             alert("Sorry, we do not have desired amount of " + this.name + " flower. Total amount available is: " + this.stock);
             this.quantity = 0;
-            document.getElementById('quantity' + this.name).value = 0;
+            this.price = 0;
+            $(`#quantity${this.name}`).val(0);
+            $(`#total${this.name}`).val(0);
         }
         else {
             this.stock -= this.quantity;
@@ -53,17 +50,18 @@ class Flower {
             sessionStorage.setItem(this.name + 'Price', this.price);
             sessionStorage.setItem(this.name + 'Quantity', this.quantity);
             sessionStorage.setItem(this.name + 'Stock', this.stock);
-            document.getElementById('stock' + this.name).value = this.stock;
+            $(`#stock${this.name}`).val(this.stock);
             alert("(" + this.quantity + ") items of " + this.name + " has been added to your cart. To checkout, please click on cart icon on upper right corner.");
         };
     };
-    quantitySource() {
-        if (sessionStorage.getItem(this.name + 'Stock') == null) {
+    checkFlowerQuantitySource() {
+        let getStock = sessionStorage.getItem(this.name + 'Stock');
+        if (getStock == null) {
             this.stock = this.stock;
         }
         else {
-            this.stock = sessionStorage.getItem(this.name + 'Stock');
-            document.getElementById('stock' + this.name).value = this.stock;
+            this.stock = getStock;
+            $(`#stock${this.name}`).val(this.stock);
         };
     };
 };
@@ -74,36 +72,32 @@ const easterFlowers = new Flower('easterFlowers', 0, 600, 0, 500, 'images/produc
 const toMumWithLove = new Flower('toMumWithLove', 0, 700, 0, 500, 'images/product-04.jpg');
 const pinkPerfection = new Flower('pinkPerfection', 0, 550, 0, 500, 'images/product-05.jpg');
 
+function checkSource() {
+    for (let i = 0; i < flowersList.length; i++) {
+        flowersList[i].checkFlowerQuantitySource();
+    };
+};
+
 function totalPrice() {
     if (finalPrice != 0) {
+        let $createElement = $('#cart');
         sessionStorage.setItem("finalprice", finalPrice);
         order();
         createCart();
-        var button = document.createElement("button");
-        button.setAttribute('id', 'cartButton');
-        button.innerHTML = "Place order";
-        button.addEventListener("click", function () {
-            placeOrder();
-        });
-        document.getElementById("item16").appendChild(br);
-        document.getElementById("item16").appendChild(button);
+        let $button = $(`<button type = 'submit' class = 'cartButton' onclick = 'placeOrder()'>Place order</button>`);
+        $createElement.append('<br>');
+        $button.appendTo($createElement);
+        let $buttonRemove = $(`<button type = 'submit' class = 'cartButton' onclick = 'removeFromCart()'>Remove from cart</button>`);
+        $buttonRemove.appendTo($createElement);
         finalPrice = 0;
-        for (var i = 0; i < flowersList.length; i++) {
-            flowersList[i].quantity = 0;
-        };
-        for (var i = 0; i < flowersList.length; i++) {
-            flowersList[i].price = flowersList[i].basePrice;
-        };
     }
     else {
         alert("Your shopping cart is empty. Please add some flowers.");
-        finalPrice = 0;
-        sessionStorage.setItem("finalprice", finalPrice);
     };
 };
 
 function order() {
-    for (var i = 0; i < flowersList.length; i++) {
+    for (let i = 0; i < flowersList.length; i++) {
         if (sessionStorage.getItem(flowersList[i].name + 'Quantity') >= 1) {
             orderedItems[i] = sessionStorage.getItem(flowersList[i].name + 'Quantity') + " pieces of " + flowersList[i].name + " flower with total price of " + sessionStorage.getItem(flowersList[i].name + 'Price') + " RSD";
         };
@@ -111,92 +105,70 @@ function order() {
 };
 
 function createCart() {
-    createElement = document.getElementById('item16');
-    document.getElementById('item16').style.display='block';
-    document.getElementById("item6").appendChild(createElement);
-    for (var i = 0; i < orderedItems.length; i++) {
+    let $createElement = $('#cart');
+    $('.purchasedFlowers').empty();
+    $('#totalPurchased').empty();
+    $('.cartButton').remove();
+    $('#cart').css('display', 'block');
+    $('#shop').append($createElement);
+    addToCart();
+};
+
+function addToCart() {
+    let $createElement = $('#cart');
+    for (let i = 0; i < orderedItems.length; i++) {
         if (orderedItems[i] != undefined) {
-            createElement.innerHTML += '<div class="purchasedFlower">' + orderedItems[i] + '</div>';
+            let $purchased = $(`<div id="purchased${i}" class="purchasedFlowers"> ${orderedItems[i]} </div>`)
+            $createElement.append($purchased);
+            $(`<input type="checkbox" id='${[i]}' class="radiobtn" name="dynradio"/>`).appendTo($purchased);
         };
     };
-    document.getElementById("item16").appendChild(br);
-    createElement.innerHTML += "Total payment is " + sessionStorage.getItem('finalprice') + " RSD";
+    $createElement.append('<br>');
+    let $totalPurchased = $(`<div id = "totalPurchased">Total payment is ${sessionStorage.getItem('finalprice')}RSD </div>`);
+    $createElement.append($totalPurchased);
+}
+
+function removeFromCart() {
+    for (let i = 0; i < flowersList.length; i++) {
+        if ($(`#${[i]}`).prop('checked') == true) {
+            finalPrice = sessionStorage.getItem('finalprice');
+            flowersList[i].stock += flowersList[i].quantity;
+            finalPrice -= flowersList[i].price;
+            sessionStorage.setItem(`${flowersList[i].name}` + 'Stock', flowersList[i].stock);
+            sessionStorage.setItem("finalprice", finalPrice);
+            flowersList[i].price = 0;
+            flowersList[i].quantity = 0;
+            sessionStorage.setItem(`${flowersList[i].name}` + 'Quantity', flowersList[i].quantity);
+            sessionStorage.setItem(`${flowersList[i].name}` + 'Price', flowersList[i].price);
+            delete orderedItems[i];
+            $(`#${[i]}`).remove();
+            $(`#purchased${i}`).remove();
+            $('#totalPurchased').html(`Total payment is ${sessionStorage.getItem('finalprice')} RSD`)
+        };
+    };
 };
 
 function placeOrder() {
     alert("Your order is confirmed. Thank you for shopping with us!");
-    sessionStorage.setItem('springMagicPrice', 0, 'springMagicQuantity', 0);
-    sessionStorage.setItem('summerFreshPrice', 0, 'summerFreshQuantity', 0);
-    sessionStorage.setItem('easterFlowersPrice', 0, 'easterFlowersQuantity', 0);
-    sessionStorage.setItem('toMumWithLovePrice', 0, 'toMumQuantity', 0);
-    sessionStorage.setItem('pinkPerfectionPrice', 0, 'pinkPerfectionQuantity', 0);
+    flowersList.forEach(function (flower) {
+        sessionStorage.setItem(`${flower.name}` + 'Price', 0);
+        sessionStorage.setItem(`${flower.name}` + 'Quantity', 0);
+    });
     location.replace("index.html");
 };
 
 function createCatalog() {
+    $container.empty();
     flowersList.forEach(function (flower) {
-        let flowerContainer = document.createElement('div');
-        flowerContainer.setAttribute('class', 'product');
-        document.getElementById("container").appendChild(flowerContainer);
-
-        let flowerImg = document.createElement('img');
-        flowerImg.setAttribute('src', flower.img);
-        flowerImg.setAttribute('alt', `${flower.name}-img`);
-        flowerContainer.appendChild(flowerImg);
-
-        let flowerName = document.createElement('h4');
-        flowerName.textContent = `${flower.name}`;
-        flowerContainer.appendChild(flowerName);
-
-        let flowerPrice = document.createElement('div');
-        flowerPrice.textContent = 'price (RSD): ';
-        let inputPrice = document.createElement('input');
-        inputPrice.setAttribute('type', 'number');
-        inputPrice.setAttribute('value', `${flower.basePrice}`);
-        inputPrice.setAttribute('readonly', 'readonly');
-        inputPrice.setAttribute('id', 'basePrice');
-        inputPrice.setAttribute('class', 'basePrice');
-        flowerPrice.appendChild(inputPrice);
-        flowerContainer.appendChild(flowerPrice);
-
-        let flowerQuantity = document.createElement('div');
-        flowerQuantity.textContent = 'flowers qty: ';
-        let inputQuantity = document.createElement('input');
-        inputQuantity.setAttribute('type', 'number');
-        inputQuantity.setAttribute('value', `${flower.quantity}`);
-        inputQuantity.setAttribute('id', 'quantity' + `${flower.name}`);
-        inputQuantity.setAttribute('class', 'productQuantity');
-        inputQuantity.setAttribute('oninput', `${flower.name}` + '.flowerPrice()');
-        inputQuantity.setAttribute('onclick', 'this.select()');
-        flowerQuantity.appendChild(inputQuantity);
-        flowerContainer.appendChild(flowerQuantity);
-
-        let flowerTotal = document.createElement('div');
-        flowerTotal.textContent = 'total (RSD) : ';
-        let inputTotal = document.createElement('input');
-        inputTotal.setAttribute('type', 'number');
-        inputTotal.setAttribute('value', `${flower.price}`);
-        inputTotal.setAttribute('readonly', 'readonly');
-        inputTotal.setAttribute('id', 'total' + `${flower.name}`);
-        inputTotal.setAttribute('class', 'price');
-        flowerTotal.appendChild(inputTotal);
-        flowerContainer.appendChild(flowerTotal);
-
-        let flowerStock = document.createElement('div');
-        flowerStock.textContent = 'flowers left: ';
-        let inputStock = document.createElement('input');
-        inputStock.setAttribute('type', 'number');
-        inputStock.setAttribute('value', `${flower.stock}`);
-        inputStock.setAttribute('readonly', 'readonly');
-        inputStock.setAttribute('id', 'stock' + `${flower.name}`);
-        flowerStock.appendChild(inputStock);
-        flowerContainer.appendChild(flowerStock);
-
-        let btn = document.createElement('button');
-        btn.setAttribute('type', 'submit');
-        btn.setAttribute('id', 'button');
-        btn.setAttribute ('onclick', `${flower.name}` + '.flowerBill()');
-        btn.textContent = 'Add to cart';
-        flowerContainer.appendChild(btn);
+        let $flowerContainer = $(`<div class = 'product'>
+        <img src = '${flower.img}' alt='${flower.name}-image'>
+        <div><h4>${flower.name}</h4></div>
+        <div>price (RSD): <input type = 'number' id = 'basePrice' class = 'basePrice' value = '${flower.basePrice}' readonly></div>
+        <div>flowers qty: <input type = 'number' id = 'quantity${flower.name}' class = 'productQuantity' value = '0' oninput = '${flower.name}.flowerPrice()' onclick = 'this.select()'></div>
+        <div>total (RSD) : <input type = 'number' id = 'total${flower.name}' class = 'price' value = '${flower.price}' readonly></div>
+        <div>flowers left: <input type = 'number' id = 'stock${flower.name}' value = '${flower.stock}' readonly></div>
+        <button type = 'submit' id = 'button' onclick = '${flower.name}.flowerBill()'>Add to cart</button>
+    </div>`);
+        $flowerContainer.appendTo($container);
     });
 };
