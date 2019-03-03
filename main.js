@@ -85,7 +85,6 @@ function totalPrice() {
         order();
         createCart();
         let $button = $(`<button type = 'submit' class = 'cartButton' onclick = 'placeOrder()'>Place order</button>`);
-        $createElement.append('<br>');
         $button.appendTo($createElement);
         let $buttonRemove = $(`<button type = 'submit' class = 'cartButton' onclick = 'removeFromCart()'>Remove from cart</button>`);
         $buttonRemove.appendTo($createElement);
@@ -143,7 +142,7 @@ function removeFromCart() {
             delete orderedItems[i];
             $(`#${[i]}`).remove();
             $(`#purchased${i}`).remove();
-            $('#totalPurchased').html(`Total payment is ${sessionStorage.getItem('finalprice')} RSD`)
+            $('#totalPurchased').html(`Total payment is ${sessionStorage.getItem('finalprice')} RSD`);
         };
     };
 };
@@ -155,6 +154,7 @@ function placeOrder() {
         sessionStorage.setItem(`${flower.name}` + 'Quantity', 0);
     });
     location.replace("index.html");
+    //window.open("https://www.w3schools.com", '', 'top=120,left=330,height=600,width=900');
 };
 
 function createCatalog() {

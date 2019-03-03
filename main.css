@@ -278,13 +278,14 @@ body {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    margin-top: 1%;
+    margin: 1%;
     cursor: pointer;
     border-radius: 10px;
 }
 
 .radiobtn {
-    width: 10%;
+    width: 5%;
+    margin-right: 33%;
 }
 
 input {
