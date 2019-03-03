@@ -88,7 +88,7 @@ function totalPrice() {
         $button.appendTo($createElement);
         let $buttonRemove = $(`<button type = 'submit' class = 'cartButton' onclick = 'removeFromCart()'>Remove from cart</button>`);
         $buttonRemove.appendTo($createElement);
-        finalPrice = 0;
+        //finalPrice = 0;
     }
     else {
         alert("Your shopping cart is empty. Please add some flowers.");
@@ -105,8 +105,8 @@ function order() {
 
 function createCart() {
     let $createElement = $('#cart');
-    $('.purchasedFlowers').empty();
-    $('#totalPurchased').empty();
+    $('.purchasedFlowers').remove();
+    $('#totalPurchased').remove();
     $('.cartButton').remove();
     $('#cart').css('display', 'block');
     $('#shop').append($createElement);
@@ -122,7 +122,7 @@ function addToCart() {
             $(`<input type="checkbox" id='${[i]}' class="radiobtn" name="dynradio"/>`).appendTo($purchased);
         };
     };
-    $createElement.append('<br>');
+    //$createElement.append('<br>');
     let $totalPurchased = $(`<div id = "totalPurchased">Total payment is ${sessionStorage.getItem('finalprice')}RSD </div>`);
     $createElement.append($totalPurchased);
 }

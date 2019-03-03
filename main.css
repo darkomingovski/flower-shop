@@ -233,6 +233,9 @@ body {
 #purchased0, #purchased1, #purchased2, #purchased3, #purchased4 {
     text-align: right;
 }
+#totalPurchased {
+    margin-top: 1%;
+}
 
 .shop {
     display: flex;
