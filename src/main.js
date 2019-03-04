@@ -84,7 +84,7 @@ function totalPrice() {
         sessionStorage.setItem("finalprice", finalPrice);
         order();
         createCart();
-        let $button = $(`<button type = 'submit' class = 'cartButton' onclick = 'placeOrder()'>Place order</button>`);
+        let $button = $(`<button type = 'submit' class = 'cartButton' onclick="window.open('checkout.html'); placeOrder();">Place order</button>`);
         $button.appendTo($createElement);
         let $buttonRemove = $(`<button type = 'submit' class = 'cartButton' onclick = 'removeFromCart()'>Remove from cart</button>`);
         $buttonRemove.appendTo($createElement);
@@ -146,14 +146,13 @@ function removeFromCart() {
 };
 
 function placeOrder() {
-    alert("Your order is placed. Proceed with the payment by clicking ok!");
     flowersList.forEach(function (flower) {
         sessionStorage.setItem(`${flower.name}` + 'Price', 0);
         sessionStorage.setItem(`${flower.name}` + 'Quantity', 0);
     });
     location.replace("index.html");
-    window.open("./checkout.html", '', 'top=120,left=330,height=600,width=900');
 };
+
 
 function createCatalog() {
     $container.empty();
