@@ -84,7 +84,9 @@ function totalPrice() {
         sessionStorage.setItem("finalprice", finalPrice);
         order();
         createCart();
-        let $button = $(`<button type = 'submit' class = 'cartButton' onclick="window.open('checkout.html'); placeOrder();">Place order</button>`);
+        let $button = $(`<button type = 'submit' class = 'cartButton' onclick="window.open('checkout.html', 
+        'windowname1', 
+        'width=800, height=500, top=130, left=330'); placeOrder();">Place order</button>`);
         $button.appendTo($createElement);
         let $buttonRemove = $(`<button type = 'submit' class = 'cartButton' onclick = 'removeFromCart()'>Remove from cart</button>`);
         $buttonRemove.appendTo($createElement);
