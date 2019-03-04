@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Eufloria checkout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Martel+Sans|Petit+Formal+Script|Raleway:300|Roboto:100"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+
+<body onload="createCheckout()">
+    <div class="checkoutTitle">Eufloria checkout</div>
+    <div class="checkoutMain" id="checkoutMain"></div>
+    <form action="" id="form">
+        <div class="checkoutForm" id="checkoutForm">
+            <form action="" >
+                <label for="first">First name:</label>
+                <input type="text" id="first" onchange="validateFirst()" required>
+                <br>
+                <label for="last">Last name:</label>
+                <input type="text" id="last" onchange="validateLast()" required>
+                <br>
+                <label for="mail">E-mail:</label>
+                <input type="mail" id="mail" onchange="validateMail()" required>
+                <br>
+                <label for="address">Address:</label>
+                <input type="text" id="address" onchange="validateAddress()" required>
+                <br>
+                <label for="city">City:</label>
+                <input type="text" id="city" onchange="validateCity()" required>
+                <br>
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" onchange="validatePhone()" placeholder="06*/****-***" required>
+                <br>
+        </div>
+        <div class="checkoutPayment" id="checkoutPayment">
+            <img src="images/CC.png" alt="">
+            <br>
+            <label for="card">Payment method</label>
+            <select name="payment" id="card">
+                <optgroup label="Credit Card">
+                    <option value="mastercard">Mastercard</option>
+                    <option value="maestro">Maestro</option>
+                    <option value="visa">Visa</option>
+                    <option value="americanexpress">American Express</option>
+                </optgroup>
+                <optgroup label="Other methods">
+                    <option value="paypal">Pay Pal</option>
+                    <option value="banktransfer">Bank Transfer</option>
+                    <option value="cash">Cash</option>
+                </optgroup>
+            </select>
+            <br>
+            <label for="cardnumber">Credit Card number:</label>
+            <input type="text" id="cardnumber" required>
+            <label for="expiration">Expiration date:</label>
+            <input type="text" id="expiration" required>
+            <label for="cvv2">CVV2 code:</label>
+            <input type="text" id="cvv2" required>
+            <br>
+            <button type='submit' id='button' onclick="confirmPayment()">Confirm payment</button>
+            <button type='submit' id='button' onclick="cancelOrder()">Cancel order</button>
+        </div>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./src/checkout.js"></script>
+
+</body>
+</html>

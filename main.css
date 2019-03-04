@@ -233,6 +233,7 @@ body {
 #purchased0, #purchased1, #purchased2, #purchased3, #purchased4 {
     text-align: right;
 }
+
 #totalPurchased {
     margin-top: 1%;
 }
@@ -258,7 +259,6 @@ body {
 
 .basePrice, .productQuantity, .price {
     margin-bottom: 5%;
-    
 }
 
 #button {
@@ -273,6 +273,7 @@ body {
     cursor: pointer;
     border-radius: 10px;
 }
+
 .cartButton {
     background-color: red;
     border: none;
@@ -295,6 +296,55 @@ input {
     width: 40%;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
+}
+
+.checkoutTitle {
+    font-family: 'Petit Formal Script', cursive;
+    text-align: center;
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+.checkoutMain {
+    font-size: 16px;
+    text-align: center;
+}
+
+.checkoutForm {
+    font-size: 14px;
+    text-align: right;
+    margin-right: 33%;
+    margin-top: 5%;
+}
+
+.checkoutForm input {
+    border: 1px solid #555;
+    border-radius: 4px;
+    margin-left: 1%;
+}
+
+.checkoutPayment {
+    font-size: 14px;
+    text-align: center;
+}
+
+.checkoutPayment img {
+    width: 30%;
+}
+
+.checkoutPayment input {
+    width: 15%;
+    border: 1px solid #555;
+    border-radius: 4px;
+}
+
+#card {
+    border: 1px solid #555;
+    border-radius: 4px;
+}
+
+form img {
+    width: 3%;
 }
 
 @media only screen and (max-width: 2560px) {

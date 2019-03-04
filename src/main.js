@@ -88,7 +88,6 @@ function totalPrice() {
         $button.appendTo($createElement);
         let $buttonRemove = $(`<button type = 'submit' class = 'cartButton' onclick = 'removeFromCart()'>Remove from cart</button>`);
         $buttonRemove.appendTo($createElement);
-        //finalPrice = 0;
     }
     else {
         alert("Your shopping cart is empty. Please add some flowers.");
@@ -122,7 +121,6 @@ function addToCart() {
             $(`<input type="checkbox" id='${[i]}' class="radiobtn" name="dynradio"/>`).appendTo($purchased);
         };
     };
-    //$createElement.append('<br>');
     let $totalPurchased = $(`<div id = "totalPurchased">Total payment is ${sessionStorage.getItem('finalprice')}RSD </div>`);
     $createElement.append($totalPurchased);
 }
@@ -148,13 +146,13 @@ function removeFromCart() {
 };
 
 function placeOrder() {
-    alert("Your order is confirmed. Thank you for shopping with us!");
+    alert("Your order is placed. Proceed with the payment by clicking ok!");
     flowersList.forEach(function (flower) {
         sessionStorage.setItem(`${flower.name}` + 'Price', 0);
         sessionStorage.setItem(`${flower.name}` + 'Quantity', 0);
     });
     location.replace("index.html");
-    //window.open("https://www.w3schools.com", '', 'top=120,left=330,height=600,width=900');
+    window.open("checkout.html", '', 'top=120,left=330,height=600,width=900');
 };
 
 function createCatalog() {
