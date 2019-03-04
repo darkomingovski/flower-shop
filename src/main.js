@@ -152,7 +152,7 @@ function placeOrder() {
         sessionStorage.setItem(`${flower.name}` + 'Quantity', 0);
     });
     location.replace("index.html");
-    window.open("checkout.html", '', 'top=120,left=330,height=600,width=900');
+    window.open("./checkout.html", '', 'top=120,left=330,height=600,width=900');
 };
 
 function createCatalog() {
