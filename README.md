@@ -29,7 +29,7 @@ First ES6 project. Flower shop template with checkout.
 
 [@ Darko Mingovski](https://github.com/darkomingovski)
 
-Project Link: [Git Hub Repo - Moview](https://github.com/darkomingovski/flower-shop)
+Project Link: [Git Hub Repo - Eufloria](https://github.com/darkomingovski/flower-shop)
 <br>
 
 ## Acknowledgements
