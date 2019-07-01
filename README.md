@@ -8,7 +8,7 @@
 
 ## Project
 
-[![Eufloria][product-screenshot]](https://github.com/darkomingovski/flower-shop)
+[![Eufloria][product-screenshot1][product-screenshot2]](https://github.com/darkomingovski/flower-shop)
 
 ## Project description
 
@@ -46,4 +46,5 @@ Project Link: [Git Hub Repo - Eufloria](https://github.com/darkomingovski/flower
 [html]: https://img.shields.io/badge/HTML-v5-red.svg?style=popout&logo=html5
 [css]: https://img.shields.io/badge/CSS-v3-blue.svg?style=popout&logo=css3
 [js]: https://img.shields.io/badge/JavaScript-ES6-yellow.svg?style=popout&logo=javascript
-[product-screenshot]: ./readme/project.png
+[product-screenshot1]: ./readme/readme1.png
+[product-screenshot2]: ./readme/readme2.png
